@@ -23,6 +23,12 @@
                     $line = "<div>$time <span style='color: white;'>$text</span></div>";
                     break; 
                 }
+
+                case EDebugLineType::Error: 
+                {
+                    $line = "<div>$time <span style='color: red;'>$text</span></div>";
+                    break;
+                }
             }
 
             echo "<script>AddDebugLine(`$line`);</script>";
