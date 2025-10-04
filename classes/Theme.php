@@ -17,7 +17,13 @@
             $last = basename($path);
             $themeFolder = Theme::$Folder;
 
-            $templatePath = __DIR__ . "/../themes/$themeFolder/$last.php";
+            if(!str_contains($last, "/")){
+                $last = "index";
+            }
+
+            $templatePath = ROOT . "/themes/$themeFolder/$last.php";
+
+            echo $templatePath;
 
             if(file_exists($templatePath))
             {
