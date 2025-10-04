@@ -23,7 +23,9 @@
                         echo "<script src='js/Debug.js'></script>";
                     }
 
-                    Core::SetCookieOneYear("Logged_User", $id);
+                    if(!isset($_COOKIE["Logged_User"]))
+                        Core::SetCookieOneYear("Logged_User", $id);
+
                     Debug::NewLine(EDebugLineType::Info, "Authenticated as {$usr['username']}");
                 }
             }
