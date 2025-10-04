@@ -1,6 +1,9 @@
 <?php 
     namespace Riptide;
     
+    echo '<script src="js/index.js"></script>';
+    echo '<link rel="stylesheet" href="index.css">';
+
     class Core 
     {
         public static function SetCookieOneYear($cookieName, $cookieValue, $path = "/")
@@ -20,17 +23,6 @@
             return hash("SHA256", $string);
         }
 
-        public static function Run()
-        {
-            require_once __DIR__ . "/Config.php"; 
-            require_once __DIR__ . "/Database.php"; 
-            require_once __DIR__ . "/Localization.php"; 
-            require_once __DIR__ . "/Auth.php";
-            require_once __DIR__ . "/Core.php";
-            require_once __DIR__ . "/../enums/EPermission.php";
 
-            Auth::SignIn();
-            Localization::GetLanguage();
-        }
     }
 ?>
