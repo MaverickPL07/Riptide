@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="js/index.js"></script>
-</head>
-<body>
-    <?php
-        require_once __DIR__ . "/classes/Core.php";
-
-        use Riptide\Core;
+<?php
+    require_once __DIR__ . "/classes/Core.php";
+    use Riptide\Core;
         
-        Core::Run();
-    ?>
-</body>
-</html>
+    Core::Run();
+?>
