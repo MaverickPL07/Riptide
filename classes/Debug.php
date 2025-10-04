@@ -5,6 +5,8 @@
     {
         public static function NewLine(EDebugLineType $type, $text)
         {
+            if(!DEBUG_MODE) return;
+            
             $now = date('d.m.Y H:i:s');
             $time = "<span>$now</span>";
             
