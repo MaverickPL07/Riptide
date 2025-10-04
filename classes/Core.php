@@ -33,6 +33,7 @@
             require_once __DIR__ . "/Theme.php";
             require_once __DIR__ . "/../enums/EPermission.php";
 
+            Config::Init();
             Auth::SignIn();
             Localization::GetLanguage();
 
