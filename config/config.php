@@ -10,4 +10,6 @@
 
     define("ERROR_LOGGING", true);
     define("DEBUG_MODE", true);
+
+    define('ROOT', "/Riptide");
 ?>
