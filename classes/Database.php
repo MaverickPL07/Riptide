@@ -15,7 +15,8 @@
                 $query = str_replace("/@table:", TABLE_PREFIX, $query);
                 $q = mysqli_query(Database::$Connection, $query);
 
-                Debug::NewLine(EDebugLineType::Normal, "Performed SQL Query (results: {$q -> num_rows})");
+                if(Auth::$User)
+                    Debug::NewLine(EDebugLineType::Normal, "Performed SQL Query (results: {$q -> num_rows})");
 
                 return $q;
             }
