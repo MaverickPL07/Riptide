@@ -25,13 +25,13 @@
 
         public static function Run($renderTheme = true)
         {
-            require_once __DIR__ . "/Config.php"; 
-            require_once __DIR__ . "/Database.php"; 
-            require_once __DIR__ . "/Localization.php"; 
-            require_once __DIR__ . "/Auth.php";
-            require_once __DIR__ . "/Core.php";
-            require_once __DIR__ . "/Theme.php";
-            require_once __DIR__ . "/../enums/EPermission.php";
+            require_once ROOT . "/classes/Config.php"; 
+            require_once ROOT . "/classes/Database.php"; 
+            require_once ROOT . "/classes/Localization.php"; 
+            require_once ROOT . "/classes/Auth.php";
+            require_once ROOT . "/classes/Core.php";
+            require_once ROOT . "/classes/Theme.php";
+            require_once ROOT . "/enums/EPermission.php";
 
             Config::Init();
             Auth::SignIn();
