@@ -21,7 +21,7 @@
                 $last = "index";
             }
 
-            $templatePath = ROOT . "/themes/$themeFolder/$last.php";
+            $templatePath = ROOT . "/Themes/$themeFolder/$last.php";
 
             echo $templatePath;
 

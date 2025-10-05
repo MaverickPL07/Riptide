@@ -27,13 +27,13 @@
 
         public static function Run($renderTheme = true)
         {
-            require_once ROOT . "/classes/Config.php"; 
-            require_once ROOT . "/classes/Database.php"; 
-            require_once ROOT . "/classes/Localization.php"; 
-            require_once ROOT . "/classes/Auth.php";
-            require_once ROOT . "/classes/Core.php";
-            require_once ROOT . "/classes/Theme.php";
-            require_once ROOT . "/enums/EPermission.php";
+            require_once ROOT . "/Classes/Config.php"; 
+            require_once ROOT . "/Classes/Database.php"; 
+            require_once ROOT . "/Classes/Localization.php"; 
+            require_once ROOT . "/Classes/Auth.php";
+            require_once ROOT . "/Classes/Core.php";
+            require_once ROOT . "/Classes/Theme.php";
+            require_once ROOT . "/Enums/EPermission.php";
 
             echo '<script src="' . ROOT_URL . "/js/index.js" . '"></script>';
             echo '<link rel="stylesheet" href="' . ROOT_URL . '/index.css">';

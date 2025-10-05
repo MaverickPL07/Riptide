@@ -1,8 +1,8 @@
 <?php 
     namespace Riptide;
 
-    require_once __DIR__ . "/../config/config.php";
-    require_once __DIR__ . "/../enums/EDebugLineType.php";
+    require_once ROOT . "/Config/config.php";
+    require_once ROOT . "/Enums/EDebugLineType.php";
 
     class Database 
     {

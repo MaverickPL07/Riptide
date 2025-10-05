@@ -1,8 +1,8 @@
 <?php 
     namespace Riptide;
 
-    require __DIR__ . "/Debug.php";
-    require_once __DIR__ . "/../enums/EDebugLineType.php";
+    require ROOT . "/Classes/Debug.php";
+    require_once ROOT . "/Enums/EDebugLineType.php";
     use Riptide\Debug;
 
     class Localization
