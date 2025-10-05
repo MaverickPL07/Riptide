@@ -17,10 +17,8 @@
                     Auth::$User = $q -> fetch_assoc();
                     $usr = Auth::$User;
 
-                    if(Auth::$User["permission"] == EPermission::Admin -> value  && DEBUG_MODE){
-                        $scriptPath =  ROOT . "/js/Debug.js";
-                        echo "<script src='$scriptPath'></script>";
-                    }
+                    if(Auth::$User["permission"] == EPermission::Admin -> value  && DEBUG_MODE)
+                        echo '<script src="' . ROOT_URL . "/js/Debug.js" . '"></script>';
 
                     if(!isset($_COOKIE["Logged_User"]) || $id != $_COOKIE["Logged_User"])
                         Core::SetCookieOneYear("Logged_User", $id);
