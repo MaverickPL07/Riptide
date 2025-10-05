@@ -12,4 +12,5 @@
     define("DEBUG_MODE", true);
 
     define('ROOT',  __DIR__ . '/..');
+    define('ROOT_URL', '/Riptide');
 ?>
