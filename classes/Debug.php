@@ -5,7 +5,7 @@
     {
         public static function NewLine(EDebugLineType $type, $text)
         {
-            if(!DEBUG_MODE) return;
+            if(!DEBUG_MODE || !isset(Auth::$User) || Auth::$User["permission"] != EPermission::Admin -> value) return;
             
             $now = date('d.m.Y H:i:s');
             $time = "<span>$now</span>";
