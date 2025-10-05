@@ -1,9 +1,6 @@
 <?php 
     namespace Riptide;
     
-    echo '<script src="js/index.js"></script>';
-    echo '<link rel="stylesheet" href="index.css">';
-
     class Core 
     {
         public static function SetCookieOneYear($cookieName, $cookieValue, $path = "/")
@@ -32,6 +29,9 @@
             require_once ROOT . "/classes/Core.php";
             require_once ROOT . "/classes/Theme.php";
             require_once ROOT . "/enums/EPermission.php";
+
+            echo '<script src="' . ROOT_URL . "/js/index.js" . '"></script>';
+            echo '<link rel="stylesheet" href="' . ROOT_URL . '/index.css">';
 
             Config::Init();
             Auth::SignIn();
