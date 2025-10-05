@@ -15,7 +15,7 @@
                 $query = str_replace("/@table:", TABLE_PREFIX, $query);
                 $q = mysqli_query(Database::$Connection, $query);
 
-                if(Auth::$User)
+                if(Auth::$User && Auth::$User["permission"] == EPermission::Admin -> value)
                     Debug::NewLine(EDebugLineType::Normal, "Performed SQL Query (results: {$q -> num_rows})");
 
                 return $q;
