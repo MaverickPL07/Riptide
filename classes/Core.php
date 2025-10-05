@@ -20,6 +20,11 @@
             return hash("SHA256", $string);
         }
 
+        public static function IsAdmin($user): bool
+        {
+            return $user && $user["permission"] == EPermission::Admin -> value;
+        }
+
         public static function Run($renderTheme = true)
         {
             require_once ROOT . "/classes/Config.php"; 
