@@ -13,19 +13,17 @@
 
         public static function Render()
         {                
-            $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-            $last = basename($path);
+            $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            $baseDir = basename(dirname($_SERVER['SCRIPT_NAME']));
+            $last = basename($url);
             $themeFolder = Theme::$Folder;
+            $uri = trim($_SERVER['REQUEST_URI'], '/');
 
-            if(str_contains($path, "/admin/")) return;
-
-            if(!str_contains($last, "/")){
+            if($uri === $baseDir || $uri === $baseDir . '/') {
                 $last = "index";
             }
 
             $templatePath = ROOT . "/Themes/$themeFolder/$last.php";
-
-            echo $templatePath;
 
             if(file_exists($templatePath))
             {
