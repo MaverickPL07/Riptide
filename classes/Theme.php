@@ -12,10 +12,12 @@
         }
 
         public static function Render()
-        {
+        {                
             $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
             $last = basename($path);
             $themeFolder = Theme::$Folder;
+
+            if(str_contains($path, "/admin/")) return;
 
             if(!str_contains($last, "/")){
                 $last = "index";
