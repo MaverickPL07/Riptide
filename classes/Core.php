@@ -3,6 +3,8 @@
     
     class Core 
     {
+        public static $isAdminDashboard = false;
+
         public static function SetCookieOneYear($cookieName, $cookieValue, $path = "/")
         {
             setcookie($cookieName, $cookieValue, time() + (86400 * 365), $path);
@@ -42,7 +44,9 @@
             Auth::SignIn();
             Localization::GetLanguage();
 
-            if($renderTheme)
+            self::$isAdminDashboard = str_contains(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/admin/");
+
+            if($renderTheme && !self::$isAdminDashboard)
                 Theme::Render();
             else 
                 Debug::NewLine(EDebugLineType::Warning, "Theme rendering is disabled!");
