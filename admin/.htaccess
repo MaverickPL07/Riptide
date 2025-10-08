@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /riptide/admin/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([^/]+)/?$ pages/$1.php [L]
