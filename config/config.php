@@ -11,6 +11,7 @@
     define("ERROR_LOGGING", true);
     define("DEBUG_MODE", true);
 
-    define('ROOT',  __DIR__ . '/..');
-    define('ROOT_URL', '/Riptide');
+    define("ROOT",  __DIR__ . '/..');
+    define("ROOT_URL", '/Riptide');
+    define("ADMIN_PATH", "Admin/");
 ?>
