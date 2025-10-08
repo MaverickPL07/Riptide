@@ -3,8 +3,6 @@
     
     class Core 
     {
-        public static $isAdminDashboard = false;
-
         public static function SetCookieOneYear($cookieName, $cookieValue, $path = "/")
         {
             setcookie($cookieName, $cookieValue, time() + (86400 * 365), $path);
@@ -27,7 +25,7 @@
             return $user && $user["permission"] == EPermission::Admin -> value;
         }
 
-        public static function Run($renderTheme = true)
+        public static function IncludeDependencies()
         {
             require_once ROOT . "/Classes/Config.php"; 
             require_once ROOT . "/Classes/Database.php"; 
@@ -39,17 +37,42 @@
 
             echo '<script src="' . ROOT_URL . "/js/index.js" . '"></script>';
             echo '<link rel="stylesheet" href="' . ROOT_URL . '/index.css">';
+        }
 
+        public static function Run($renderTheme = true)
+        {
+            self::IncludeDependencies();
             Config::Init();
             Auth::SignIn();
             Localization::GetLanguage();
 
-            self::$isAdminDashboard = str_contains(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/admin/");
-
-            if($renderTheme && !self::$isAdminDashboard)
+            if($renderTheme)
                 Theme::Render();
             else 
                 Debug::NewLine(EDebugLineType::Warning, "Theme rendering is disabled!");
+        }
+
+        public static function RunAdmin()
+        {
+            self::IncludeDependencies();
+            Config::Init();
+            Auth::SignIn();
+            Localization::GetLanguage();
+
+            $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); 
+            $last = basename($url);
+            $base = "";
+
+            if($last == strtolower(basename(ADMIN_PATH)))
+            {
+                $base = ROOT . "/Admin/";
+                include_once $base . "index.php";
+            }
+            else
+            {
+                $base = ROOT . "/Admin/pages/";
+                include_once $base .  "$last.php";
+            }
         }
     }
 ?>
